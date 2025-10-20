@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pages.models import Post, Comment, Student, Course, Enrollment
+from.models import Post, Comment, Student, Course, Enrollment
 # Register your models here.
 class CommentInline(admin.TabularInline):
     model = Comment
@@ -7,7 +7,7 @@ class CommentInline(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "body", "created_at")
+    list_display = ("title", "content", "created_at")
     inlines = [CommentInline]
     search_fields = ("title", "body")
     list_filter = ("created_at",)
